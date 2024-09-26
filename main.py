@@ -1,17 +1,13 @@
-import logging
-import os
+import logging,os
 import requests
 import asyncio
 from datetime import datetime, timedelta
 from telebot import TeleBot  # Ensure you're using the correct import
 
-# Add the port you want to use
-PORT = 8080
-
-bot_token = "5953937447:AAH1KCsL6BO3pc2DndLPMcl7S18gAS3b6Xw"
+bot_token="5953937447:AAH1KCsL6BO3pc2DndLPMcl7S18gAS3b6Xw"
 bot = TeleBot(bot_token)  # Initialize the TeleBot object
 
-url = "https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
+url="https://pro-api.coinmarketcap.com/v1/cryptocurrency/quotes/latest"
 # Setup logging
 logging.basicConfig(filename='bot_log.log', level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
@@ -133,5 +129,4 @@ def stop_tracking(message):
         bot.send_message(chat_id, "Tracking stopped.")
 
 if __name__ == "__main__":
-    print(f"Starting the bot on port {PORT}...")
     bot.polling(none_stop=True)
